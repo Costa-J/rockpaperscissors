@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        let playerChoice = '';
+        let computerChoice = '';
+        let playerPoints = 0;
+        let computerPoints = 0;
+        let ties = 0;
+
+        function getComputerChoice() {
+            let choices = ['Rock', 'Paper', 'Scissors'];
+            const randomIndex = Math.floor(Math.random() * choices.length);
+
+            let computerPick = choices[randomIndex].toLowerCase();
+            computerChoice = computerPick;
+            return 
+        }
+        function getPlayerChoice() {
+            let playerPick = prompt('Pick Rock, Paper, or Scissors');
+            playerChoice = playerPick.toLowerCase();
+            return 
+        }
+        function playRound() {
+            if(computerChoice === playerChoice) {
+                ties++
+                console.log("It's a tie!");
+            }
+            if(computerChoice === 'scissors' && playerChoice === 'rock'){
+                playerPoints++
+                console.log('Congratulations, you won!')
+            }
+            if(computerChoice === 'scissors' && playerChoice === 'paper'){
+                computerPoints++
+                console.log('Sorry, you lost!')
+            }
+            if(computerChoice === 'paper' && playerChoice === 'scissors'){
+                playerPoints++
+                console.log('Congratulations, you won!')
+            }
+            if(computerChoice === 'paper' && playerChoice === 'rock'){
+                computerPoints++
+                console.log('Sorry, you lost!')
+            }
+            if(computerChoice === 'rock' && playerChoice === 'paper'){
+                playerPoints++
+                console.log('Congratulations, you won!')
+            }
+            if(computerChoice === 'rock' && playerChoice === 'scissors'){
+                computerPoints++
+                console.log('Sorry, you lost!')
+            }
+        }
+
+        function game(){
+            for (let i = 0; i < 5; i++){
+                getComputerChoice();
+                getPlayerChoice();
+                playRound();
+            }
+            console.log(`Computer points: ${computerPoints}`)
+            console.log(`Player points: ${playerPoints}`)
+            console.log(`Ties: ${ties}`)
+        }
+    </script>
+</body>
+</html>
+
